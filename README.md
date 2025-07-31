@@ -15,6 +15,7 @@ Import data to SQL database
 4. import csv file into SQL Database
 5. Upload Data in Power BI
 DAX Queries :-
+
 AgeGroup = SWITCH(
  TRUE(),
  'public cust_detail'[customer_age] < 30, "20-30",
