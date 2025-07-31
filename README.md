@@ -1,5 +1,6 @@
 Project:- Credit_Card_Financial_Dashboard
 (Credit Card Transaction and Customer Dashboard using Power BI) (Weekly Status Report)
+
 *Project Objective :- 
 To develop a comprehensive credit
 card weekly dashboard that
@@ -7,13 +8,16 @@ provides real-time insights into key
 performance metrics and trends,
 enabling stakeholders to monitor
 and analyze credit card operations effectively.
+
 STEPS:-
+
 Import data to SQL database
 1. Prepare csv file
 2. Create Datbase (ccdb)
 3. Create tables in SQL
 4. import csv file into SQL Database
 5. Upload Data in Power BI
+   
 DAX Queries :-
 
 AgeGroup = SWITCH(
@@ -25,6 +29,8 @@ AgeGroup = SWITCH(
  'public cust_detail'[customer_age] >= 60, "60+",
  "unknown"
  )
+
+	
 IncomeGroup = SWITCH(
  TRUE(),
  'public cust_detail'[income] < 35000, "Low",
@@ -32,13 +38,17 @@ IncomeGroup = SWITCH(
  'public cust_detail'[income] >= 70000, "High",
  "unknown"
 )
+
 week_num2 = WEEKNUM('public cc_detail'[week_start_date])
+
 Revenue = 'public cc_detail'[annual_fees] + 'public cc_detail'[total_trans_amt] + 'public cc_detail'[interest_earned]
+
 Current_week_Reveneue = CALCULATE(
  SUM('public cc_detail'[Revenue]),
  FILTER(
  ALL('public cc_detail'),
  'public cc_detail'[week_num2] = MAX('public cc_detail'[week_num2])))
+	
 Previous_week_Reveneue = CALCULATE(
  SUM('public cc_detail'[Revenue]),
  FILTER(
@@ -48,15 +58,24 @@ Previous_week_Reveneue = CALCULATE(
 Project Insights :-
 Weak on Weak(WOW) change:
 • Revenue increased by 28.8%,
+
 Overview YTD:-
+
 • Overall revenue is 57M
+
 • Total interest is 8M
+
 • Total transaction amount is 46M
+
 • Male customers are contributing more in revenue 31M, female 26M
+
 • Blue & Silver credit card are contributing to 93% of overall
 transactions
+
 • TX, NY & CA is contributing to 68%
+
 • Overall Activation rate is 57.5%
+
 • Overall Delinquent rate is 6.06%
 
                     
